@@ -7,7 +7,7 @@
   %ul
     - todos.each do |item|
       %li
-        #{item}
+        = item
         %form{:method=>"post", :action=>"/delete"}
           %input{:type=>"hidden", :name=>"todo", :value=>"#{item}"}
           %input{:type=>"submit", :value=>"Abhaken"}
