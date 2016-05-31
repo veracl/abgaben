@@ -1,0 +1,27 @@
+<h1>To-Do-Liste</h1>
+
+<h2>Zu erledigen</h2>
+	<% if todos.empty? %>Alles erledigt!<% else %>
+	<ul>
+		<% todos.each do |item| %>
+			<li><%= item %> <form method='post' action='/delete'><input type='hidden' name='todo' value='<%= item %>'><input type='submit' value='Abhaken'></form></li>
+		<% end %>
+	</ul>
+	<% end %>
+
+<h2>Erledigt</h2>
+
+<a href="/empty">Leeren</a>
+
+
+	<ul>
+		<% done.each do |item| %>
+			<li><%= item %></li>
+		<% end %>
+	</ul>
+
+<h2>Add new todo</h2>
+
+<form method='post' action='/new'>
+<input type='text' name='newtodo'><input type='submit' value='Submit'>
+</form>
