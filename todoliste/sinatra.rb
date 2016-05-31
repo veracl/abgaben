@@ -4,7 +4,7 @@ todos = ["Einkaufen", "Putzen"]
 done = []
 
 get '/' do
-	erb :index, :locals => {:todos => todos, :done => done}
+	haml :index, :locals => {:todos => todos, :done => done}
 end
 
 post '/delete' do
