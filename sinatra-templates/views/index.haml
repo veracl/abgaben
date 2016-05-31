@@ -1,0 +1,11 @@
+%table
+	%tr
+		%th First Name
+		%th Last Name
+		%th Phone Number
+
+	- participants.each do |participant|
+		%tr
+			%td= participant.first_name
+			%td= participant.last_name
+			%td= participant.phone_number

@@ -17,13 +17,11 @@ class Person
   end
 end
 
-
-
 get '/' do
   participants = [
     Person.new("Laura Liegener" , 999) ,
     Person.new("Leo Eckwert"    , 123) ,
     Person.new("Meike Fischer"  , 567) ,
   ]
-  erb :index, :locals => {:participants => participants}
+  haml :index, :locals => {:participants => participants}
 end
