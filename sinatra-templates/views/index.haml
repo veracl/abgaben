@@ -6,7 +6,7 @@
     %th Last Name
     %th Phone Number
 
-  - participants.each do |participant|
+  - @participants.each do |participant|
     %tr
       %td= participant.first_name
       %td= participant.last_name
