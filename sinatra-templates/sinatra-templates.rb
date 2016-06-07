@@ -18,10 +18,10 @@ class Person
 end
 
 get '/' do
-  participants = [
+  @participants = [
     Person.new("Laura Liegener" , 999) ,
     Person.new("Leo Eckwert"    , 123) ,
     Person.new("Meike Fischer"  , 567) ,
   ]
-  haml :index, :locals => {:participants => participants}
+  haml :index
 end
