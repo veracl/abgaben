@@ -10,42 +10,31 @@ ActiveRecord::Base.establish_connection(
 class ToDo < ActiveRecord::Base
 end
 
-class Done < ActiveRecord::Base
-end
 
-#ActiveRecord::Migration.create_table :to_dos do |t|
-#  t.string :name
-#end
-
-#ActiveRecord::Migration.create_table :dones do |t|
-#  t.string :name
-#end
-
-#ToDo.create(name: "Putzen")
 
 get '/' do
-  @to_dos = ToDo.all()
-  @dones = Done.all()
+  @to_dos = ToDo.where(done: false)
+  @dones = ToDo.where(done: true)
   haml :index
 end
 
 post '/delete' do
   todo = params[:todo]
   del = ToDo.find_by(name: todo)
-  del.destroy
-  Done.create(name: todo)
+  del.done = true
+  del.save!
   redirect to('/')
 end
 
 post '/new' do
   newtodo = params[:newtodo]
-  if !(newtodo.length == 0)
-    ToDo.create(name: newtodo)
+  unless newtodo.empty?
+    ToDo.create(name: newtodo, done: false)
   end
   redirect to('/')
 end
 
 get '/empty' do
-  Done.delete_all
+  ToDo.where(done: true).delete_all
   redirect to('/')
 end
