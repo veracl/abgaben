@@ -21,6 +21,7 @@ get '/' do
   haml :index
 end
 
+delete '/delete' do
   todo_id = params[:todo_id]
   del = ToDo.find_by(id: todo_id)
   del.done = true
@@ -37,6 +38,7 @@ post '/new' do
   redirect to('/')
 end
 
+delete '/empty' do
   ToDo.where(done: true).delete_all
   redirect to('/')
 end
