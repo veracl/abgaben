@@ -9,7 +9,7 @@
       %li
         = item.name
         %form{:method=>"post", :action=>"/delete"}
-          %input{:type=>"hidden", :name=>"todo", :value=>"#{item.name}"}
+          %input{:type=>"hidden", :name=>"todo_id", :value=>"#{item.id}"}
           %input{:type=>"submit", :value=>"Abhaken"}
 
 %h2 Erledigt

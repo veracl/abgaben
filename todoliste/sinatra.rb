@@ -19,8 +19,8 @@ get '/' do
 end
 
 post '/delete' do
-  todo = params[:todo]
-  del = ToDo.find_by(name: todo)
+  todo_id = params[:todo_id]
+  del = ToDo.find_by(id: todo_id)
   del.done = true
   del.save!
   redirect to('/')
