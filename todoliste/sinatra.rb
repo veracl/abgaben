@@ -41,11 +41,11 @@ post '/todos/new' do
   unless newtodo.empty? || uid.nil?
     ToDo.create(name: newtodo, done: false, users_id: uid)
   end
-  redirect to('/todos/')
+  redirect to('/')
 end
 
 # delete all todos
-delete '/empty' do
+delete '/todos/' do
   ToDo.where(done: true).delete_all
   redirect to('/')
 end
