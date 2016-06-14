@@ -6,6 +6,6 @@ Abgaben für Rubies in the Woods.
 
 Eine simple To-Do-Liste mit SQLite3 Datenbank.
 
-### /sinatra-templates
+## /sinatra-templates
 
 Übungsaufgabe zu Templates in Sinatra.
