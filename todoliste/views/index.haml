@@ -11,9 +11,9 @@
         = item.name
         - unless user.nil?
           (angelegt von #{user.uname})
-        %form{:method=>"post", :action=>"/delete"}
+        %form{:method=>"post", :action=>"#{item.id}"}
           %input{:type=>"hidden", :name=>"todo_id", :value=>"#{item.id}"}
-          %input{:type=>"hidden", :name=>"_method", :value=>"delete"}
+          %input{:type=>"hidden", :name=>"_method", :value=>"put"}
           %input{:type=>"submit", :value=>"Abhaken"}
 
 %h2 Erledigt
@@ -29,13 +29,13 @@
 
 %h2 Add new todo
 
-%form{:method=>"post", :action=>"/new"}
+%form{:method=>"post", :action=>"new"}
   %p Nutzer:
   - @users.each do |user|
     %input{:type=>"radio", :name=>"uid", :value=>"#{user.id}"}
     = user.uname
   %p
-    %a{:href=>"/newuser"} Neuen Nutzer anlegen
+    %a{:href=>"/users/new"} Neuen Nutzer anlegen
 
   %input{:type=>"text", :name=>"newtodo"}
   %input{:type=>"submit", :value=>"Submit"}

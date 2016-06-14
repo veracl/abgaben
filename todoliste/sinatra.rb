@@ -13,41 +13,50 @@ end
 class User < ActiveRecord::Base
 end
 
-
 get '/' do
+  redirect to('/todos/')
+end
+
+# display all todos
+get '/todos/' do
   @to_dos = ToDo.where(done: false)
   @dones = ToDo.where(done: true)
   @users = User.all()
   haml :index
 end
 
-delete '/delete' do
-  todo_id = params[:todo_id]
+# update a todo
+put '/todos/:id' do
+  todo_id = params[:id]
   del = ToDo.find_by(id: todo_id)
   del.done = true
   del.save!
   redirect to('/')
 end
 
-post '/new' do
+# create a new todo
+post '/todos/new' do
   newtodo = params[:newtodo]
   uid = params[:uid]
   unless newtodo.empty? || uid.nil?
     ToDo.create(name: newtodo, done: false, users_id: uid)
   end
-  redirect to('/')
+  redirect to('/todos/')
 end
 
+# delete all todos
 delete '/empty' do
   ToDo.where(done: true).delete_all
   redirect to('/')
 end
 
-get '/newuser' do
+# returns form to create a new user
+get '/users/new' do
   haml :newuser
 end
 
-post '/newuser' do
+# create a new user
+post '/users/new' do
   uname = params[:uname]
   unless uname.empty?
     User.create(uname: uname)
