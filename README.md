@@ -12,4 +12,6 @@ Eine simple To-Do-Liste mit SQLite3 Datenbank.
 
 ## /railsgirls
 
+![Screenshot](/railsgirls/app/assets/images/screenshot_index.png?raw=true "Screenshot der Startseite")
+
 Ruby on Rails-Webapp basierend auf dem [Rails Girls Workshop Tutorial](http://guides.railsgirls.com/app), mit eigenen Ergänzungen. Benutzt Rspec für Behavior-Driven Development.
