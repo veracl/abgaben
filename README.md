@@ -15,3 +15,11 @@ Eine simple To-Do-Liste mit SQLite3 Datenbank.
 ![Screenshot](/railsgirls/app/assets/images/screenshot_index.png?raw=true "Screenshot der Startseite")
 
 Ruby on Rails-Webapp basierend auf dem [Rails Girls Workshop Tutorial](http://guides.railsgirls.com/app), mit eigenen Ergänzungen. Benutzt Rspec für Behavior-Driven Development.
+
+### Installation
+
+`git clone https://github.com/veracl/abgaben.git`
+
+`cd abgaben/railsgirls`
+
+`bundle install`
